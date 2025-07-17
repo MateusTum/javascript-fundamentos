@@ -1,26 +1,159 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* JavaScript Brand Colors */
+  --js-yellow: #f7df1e;
+  --js-yellow-dark: #e6c914;
+  --js-yellow-light: #f9e55a;
+  --js-black: #1a1a1a;
+  --js-black-light: #2d2d2d;
+  --js-black-lighter: #404040;
+  
+  /* Semantic Colors */
+  --background: var(--js-black);
+  --foreground: var(--js-yellow);
+  --card-bg: var(--js-black-light);
+  --border: var(--js-black-lighter);
+  --accent: var(--js-yellow);
+  --muted: #666666;
+  --muted-foreground: #999999;
+  
+  /* Interactive States */
+  --hover: var(--js-yellow-dark);
+  --active: var(--js-yellow-light);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-js-yellow: var(--js-yellow);
+  --color-js-yellow-dark: var(--js-yellow-dark);
+  --color-js-yellow-light: var(--js-yellow-light);
+  --color-js-black: var(--js-black);
+  --color-js-black-light: var(--js-black-light);
+  --color-js-black-lighter: var(--js-black-lighter);
+  --color-card-bg: var(--card-bg);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-hover: var(--hover);
+  --color-active: var(--active);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Smooth scrolling para navegação */
+html {
+  scroll-behavior: smooth;
+  background: var(--js-black);
+}
+
+/* Customizações para melhor UX */
+* {
+  box-sizing: border-box;
+}
+
+/* Prevenção de overflow horizontal */
+body, html {
+  overflow-x: hidden;
+}
+
+/* Animações suaves para hover states */
+.transition-all {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Cursor personalizado para elementos interativos */
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-grab {
+  cursor: grab;
+}
+
+.cursor-grab:active {
+  cursor: grabbing;
+}
+
+/* Melhoria para focus accessibility */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--js-yellow);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Custom scrollbar para webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--js-black-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--js-yellow);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--js-yellow-dark);
+}
+
+/* Seleção de texto personalizada */
+::selection {
+  background: var(--js-yellow);
+  color: var(--js-black);
+}
+
+::-moz-selection {
+  background: var(--js-yellow);
+  color: var(--js-black);
+}
+
+/* Classes utilitárias customizadas */
+.text-left-custom {
+  text-align: left !important;
+}
+
+.bg-js-gradient {
+  background: linear-gradient(135deg, var(--js-black) 0%, var(--js-black-light) 100%);
+}
+
+.border-js-yellow {
+  border-color: var(--js-yellow);
+}
+
+.text-js-yellow {
+  color: var(--js-yellow);
+}
+
+.bg-js-yellow {
+  background-color: var(--js-yellow);
+}
+
+.bg-js-black {
+  background-color: var(--js-black);
+}
+
+.bg-js-black-light {
+  background-color: var(--js-black-light);
+}
+
+.hover\:bg-js-yellow:hover {
+  background-color: var(--js-yellow);
+}
+
+.hover\:text-js-black:hover {
+  color: var(--js-black);
 }
