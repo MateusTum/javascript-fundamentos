@@ -75,7 +75,7 @@ export default function FloatingButtons() {
 
       {/* QR Code Modal */}
       {isQRModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4">
           {/* Backdrop */}
           <div 
             className="absolute inset-0 bg-black/70 backdrop-blur-sm"
@@ -84,10 +84,9 @@ export default function FloatingButtons() {
           
           {/* Modal Content */}
           <div className={`
-            relative ${jsClasses.bg.secondary} rounded-2xl p-4 md:p-6 shadow-2xl 
-            border-2 ${jsClasses.border.yellow} w-full mx-4
-            max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl
-            max-h-[90vh] overflow-y-auto
+            relative ${jsClasses.bg.secondary} rounded-2xl p-12 shadow-2xl 
+            border-2 ${jsClasses.border.yellow} w-full mx-2 sm:mx-4
+            max-w-xs sm:max-w-sm max-h-screen
             transform transition-all duration-300 scale-100
           `}>
             {/* Close Button */}
@@ -104,56 +103,56 @@ export default function FloatingButtons() {
             </button>
 
             {/* Modal Header */}
-            <div className="text-center mb-6">
-              <div className={`inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full ${jsClasses.bg.yellow} mb-4`}>
-                <HiQrcode className="w-6 h-6 md:w-7 md:h-7 text-black" />
+            <div className="text-center mb-3">
+              <div className={`inline-flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full ${jsClasses.bg.yellow} mb-2`}>
+                <HiQrcode className="w-4 h-4 md:w-5 md:h-5 text-black" />
               </div>
-              <h3 className={`text-xl md:text-2xl font-bold ${jsClasses.text.primary} mb-2`}>
+              <h3 className={`text-base md:text-lg font-bold ${jsClasses.text.primary} mb-1`}>
                 Compartilhar Site
               </h3>
-              <p className={`text-sm md:text-base ${jsClasses.text.secondary}`}>
+              <p className={`text-xs ${jsClasses.text.secondary}`}>
                 Escaneie o QR code para acessar
               </p>
             </div>
 
             {/* QR Code */}
             {currentURL && (
-              <div className="bg-white p-4 md:p-6 rounded-lg mb-6 flex justify-center">
+              <div className="bg-white p-2 rounded-lg mb-3 flex justify-center">
                 <QRCode
                   value={currentURL}
-                  size={200}
+                  size={100}
                   style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-                  viewBox={`0 0 200 200`}
+                  viewBox={`0 0 100 100`}
                 />
               </div>
             )}
 
             {/* URL Display */}
-            <div className={`${jsClasses.bg.primary} rounded-lg p-3 md:p-4 mb-6`}>
-              <p className={`text-sm md:text-base ${jsClasses.text.muted} mb-2`}>URL:</p>
-              <p className={`text-sm md:text-base ${jsClasses.text.primary} font-mono break-all leading-relaxed`}>
+            <div className={`${jsClasses.bg.primary} rounded-lg p-2 mb-3`}>
+              <p className={`text-xs ${jsClasses.text.muted} mb-1`}>URL:</p>
+              <p className={`text-xs ${jsClasses.text.primary} font-mono break-all leading-tight`}>
                 {currentURL}
               </p>
             </div>
 
             {/* Action Buttons */}
-            <div className="flex gap-3">
+            <div className="flex gap-2">
               <button
                 onClick={copyToClipboard}
                 className={`
-                  flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-lg
-                  ${jsClasses.bg.yellow} text-black font-medium text-sm md:text-base
+                  flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg
+                  ${jsClasses.bg.yellow} text-black font-medium text-sm
                   hover:bg-[#e6c914] transition-colors duration-200
                 `}
               >
-                <HiShare className="w-4 h-4 md:w-5 md:h-5" />
+                <HiShare className="w-3.5 h-3.5" />
                 Copiar
               </button>
               <button
                 onClick={closeQRModal}
                 className={`
-                  px-6 py-3 rounded-lg border-2 ${jsClasses.border.yellow}
-                  ${jsClasses.text.primary} hover:bg-[#f7df1e]/10 text-sm md:text-base
+                  px-4 py-2 rounded-lg border-2 ${jsClasses.border.yellow}
+                  ${jsClasses.text.primary} hover:bg-[#f7df1e]/10 text-sm
                   transition-colors duration-200
                 `}
               >
