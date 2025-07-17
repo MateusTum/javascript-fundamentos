@@ -36,9 +36,22 @@ export default function HeroSection() {
           </h1>
           
           {/* Programming Language Subtitle */}
-          <p className={`text-lg sm:text-xl md:text-2xl lg:text-3xl font-light ${jsClasses.text.secondary}`}>
+          <p className={`text-lg sm:text-xl md:text-2xl lg:text-3xl font-light ${jsClasses.text.secondary} mb-6`}>
             Linguagem de programação
           </p>
+          
+          {/* Educational Project Information */}
+          <div className={`max-w-2xl mx-auto ${jsClasses.text.muted}`}>
+            <p className="text-sm sm:text-base md:text-lg mb-2">
+              Projeto educacional apresentado no
+            </p>
+            <p className={`text-base sm:text-lg md:text-xl font-medium ${jsClasses.text.secondary} mb-2`}>
+              IFG Campus Jataí
+            </p>
+            <p className="text-sm sm:text-base md:text-lg">
+              Disciplina: Fundamentos da Computação • 1º Período
+            </p>
+          </div>
         </div>
     </section>
   );
